@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Locatie opvragen</title>
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+	<script type="text/javascript">
+	function initialize() {
+		if (navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition(geolocationCallback, error);
+        } else {
+			error('not supported');
+        }
+    }
+
+    function geolocationCallback(position) {
+		document.getElementById("locatie").innerHTML = "("+position.coords.latitude+","+position.coords.longitude+")";
+    }
+
+    function error(msg) {
+		alert(msg);
+    }
+    </script>
+</head>
+
+<body onload="initialize()">
+    <div style="text-align:center">
+		<b>Uw locatie: </b><span id="locatie">(onbekend)</span>
+	</div>
+	<div style="text-align:center">
+		<b>Uw gebouw: </b>
+		<img src="Technicum_Muinkschelde.jpg" alt="Technicum">
+		<img src="Plateaugebouw.jpg" alt="Plateau">
+		
+		
+	</div>
+	
+</body>
+</html>
